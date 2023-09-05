@@ -1,81 +1,61 @@
-var numberOfDrumButtons = document.querySelectorAll(".drum").length;
+let randomNumber1 = Math.random();
+randomNumber1 *= 6;
+let roundNumber = Math.floor(randomNumber1) + 1;
 
-for (var i = 0; i < numberOfDrumButtons; i++) {
+let randomNumber2 = Math.random();
+randomNumber2 *= 6;
+let roundNumber2 = Math.floor(randomNumber2) + 1;
 
-  document.querySelectorAll(".drum")[i].addEventListener("click", function() {
+// player 1
 
-    var buttonInnerHTML = this.innerHTML;
-
-    makeSound(buttonInnerHTML);
-
-    buttonAnimation(buttonInnerHTML);
-
-  });
-
+if(roundNumber === 1){
+    let player1 = document.querySelector(".img1").setAttribute("src", "./images/dice1.png");
+}
+if(roundNumber === 2){
+    let player1 = document.querySelector(".img1").setAttribute("src", "./images/dice2.png");
+}
+if(roundNumber === 3){
+    let player1 = document.querySelector(".img1").setAttribute("src", "./images/dice3.png");
+}
+if(roundNumber === 4){
+    let player1 = document.querySelector(".img1").setAttribute("src", "./images/dice4.png");
+}
+if(roundNumber === 5){
+    let player1 = document.querySelector(".img1").setAttribute("src", "./images/dice5.png");
+}
+if(roundNumber === 6){
+    let player1 = document.querySelector(".img1").setAttribute("src", "./images/dice6.png");
 }
 
-document.addEventListener("keypress", function(event) {
+// player 2
 
-  makeSound(event.key);
-
-  buttonAnimation(event.key);
-
-});
-
-
-function makeSound(key) {
-
-  switch (key) {
-    case "w":
-      var tom1 = new Audio("sounds/tom-1.mp3");
-      tom1.play();
-      break;
-
-    case "a":
-      var tom2 = new Audio("sounds/tom-2.mp3");
-      tom2.play();
-      break;
-
-    case "s":
-      var tom3 = new Audio('sounds/tom-3.mp3');
-      tom3.play();
-      break;
-
-    case "d":
-      var tom4 = new Audio('sounds/tom-4.mp3');
-      tom4.play();
-      break;
-
-    case "j":
-      var snare = new Audio('sounds/snare.mp3');
-      snare.play();
-      break;
-
-    case "k":
-      var crash = new Audio('sounds/crash.mp3');
-      crash.play();
-      break;
-
-    case "l":
-      var kick = new Audio('sounds/kick-bass.mp3');
-      kick.play();
-      break;
-
-
-    default: console.log(key);
-
-  }
+if(roundNumber2 === 1){
+    let player2 = document.querySelector(".img2").setAttribute("src", "./images/dice1.png");
+}
+if(roundNumber2 === 2){
+    let player2 = document.querySelector(".img2").setAttribute("src", "./images/dice2.png");
+}
+if(roundNumber2 === 3){
+    let player2 = document.querySelector(".img2").setAttribute("src", "./images/dice3.png");
+}
+if(roundNumber2 === 4){
+    let player2 = document.querySelector(".img2").setAttribute("src", "./images/dice4.png");
+}
+if(roundNumber2 === 5){
+    let player2 = document.querySelector(".img2").setAttribute("src", "./images/dice5.png");
+}
+if(roundNumber2 === 6){
+    let player2 = document.querySelector(".img2").setAttribute("src", "./images/dice6.png");
 }
 
+// result 
 
-function buttonAnimation(currentKey) {
-
-  var activeButton = document.querySelector("." + currentKey);
-
-  activeButton.classList.add("pressed");
-
-  setTimeout(function() {
-    activeButton.classList.remove("pressed");
-  }, 100);
-
+if(roundNumber > roundNumber2){
+    let heading= document.getElementById("heading").innerHTML="Player1 won🏆";
+}
+else if( roundNumber2 > roundNumber){
+    let heading=  document.getElementById("heading").innerHTML="Player2 won🏆";
+}
+else {
+    let heading=  document.getElementById("heading").innerHTML="🤝Draw";
 }
